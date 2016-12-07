@@ -10,16 +10,48 @@ app.set('port', (process.env.PORT || 5000));
 app.set('view engine','pug');
 app.set('views', './views');
 
-//----------- MySQL setting -----------
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
+//---------- ■ MySQL setting -----------
+//var mysql      = require('mysql');
+//var connection = mysql.createConnection({
+//  host     : 'us-cdbr-iron-east-04.cleardb.net', 
+//  user     : 'b69910662a1301',
+//  password : '0c76890f',
+//  database : 'heroku_36ce9bdde949664'
+//});
+//
+//connection.connect();
+
+//- MySQL Against Disconnect setting instead ■ MySQL setting----
+var db_config = {
   host     : 'us-cdbr-iron-east-04.cleardb.net', 
   user     : 'b69910662a1301',
   password : '0c76890f',
   database : 'heroku_36ce9bdde949664'
-});
+};
 
-connection.connect();
+var connection;
+
+function handleDisconnect() {
+  connection = mysql.createConnection(db_config); 
+
+  connection.connect(function(err) {              
+    if(err) {                                     
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000); 
+    }                                     
+  });                                     
+                                         
+  connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+      handleDisconnect();                         
+    } else {                                      
+      throw err;                                  
+    }
+  });
+}
+
+handleDisconnect();
 
 //------------ Pages Routing -----------------------------
 app.get('/', function(req,res){
