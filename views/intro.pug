@@ -1,6 +1,83 @@
 doctype html
-html
+html(lang='en')
   head
+    title Bootstrap Example
     meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    style.
+      /* Remove the navbar's default margin-bottom and rounded borders */
+      .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      }
+      /* Add a gray background color and some padding to the footer */
+      footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+      }
   body
-    h1 nezca
+    nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Portfolio
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='#') Home
+            li
+              a(href='#') About
+            li
+              a(href='#') Gallery
+            li
+              a(href='#') Contact
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#')
+                span.glyphicon.glyphicon-log-in
+                |  Login
+    .jumbotron
+      .container.text-center
+        h1 My Portfolio
+        p Some text that represents "Me"...
+    .container-fluid.bg-3.text-center
+      h3 Some of my Work
+      br
+      .row
+        .col-sm-3
+          p Some text..
+          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
+        .col-sm-3
+          p Some text..
+          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
+        .col-sm-3
+          p Some text..
+          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
+        .col-sm-3
+          p Some text..
+          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
+    br
+    .container-fluid.bg-3.text-center
+      .row
+        .col-sm-3
+          p Some text..
+          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
+        .col-sm-3
+          p Some text..
+          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
+        .col-sm-3
+          p Some text..
+          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
+        .col-sm-3
+          p Some text..
+          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
+    br
+    br
+    footer.container-fluid.text-center
+      p Footer Text
