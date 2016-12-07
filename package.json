@@ -1,0 +1,23 @@
+{
+  "name": "nezca",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "6.9.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/nezca.git"
+  },
+  "keywords": [],
+  "author": "nezca",
+  "license": "ISC",
+  "dependencies": {
+    "jade": "^1.11.0",
+    "pug": "^2.0.0-beta6"
+  }
+}
