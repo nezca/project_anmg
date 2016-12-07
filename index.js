@@ -10,25 +10,15 @@ app.set('port', (process.env.PORT || 5000));
 app.set('view engine','pug');
 app.set('views', './views');
 
-//---------- ■ MySQL setting -----------
+//---------- ■ MySQL setting method_#1 -----------
 //var mysql      = require('mysql');
-//var connection = mysql.createConnection({
+//var db_config = {
 //  host     : 'us-cdbr-iron-east-04.cleardb.net', 
 //  user     : 'b69910662a1301',
 //  password : '0c76890f',
 //  database : 'heroku_36ce9bdde949664'
-//});
+//};
 //
-//connection.connect();
-
-//- MySQL Against Disconnect setting instead ■ MySQL setting----
-var db_config = {
-  host     : 'us-cdbr-iron-east-04.cleardb.net', 
-  user     : 'b69910662a1301',
-  password : '0c76890f',
-  database : 'heroku_36ce9bdde949664'
-};
-
 //var connection;
 //function handleDisconnect(){
 //  connection = mysql.createConnection(db_config); 
@@ -51,8 +41,14 @@ var db_config = {
 
 //handleDisconnect();
 
-//----------------------another way to sql connect ----
-
+//---------- ■ MySQL setting method_#2 (recommend) ------
+var mysql      = require('mysql');
+var db_config = {
+  host     : 'us-cdbr-iron-east-04.cleardb.net', 
+  user     : 'b69910662a1301',
+  password : '0c76890f',
+  database : 'heroku_36ce9bdde949664'
+};
 var handleKFDisconnect = function() {
     kfdb.on('error', function(err) {
         if (!err.fatal) {
