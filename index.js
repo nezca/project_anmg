@@ -72,7 +72,7 @@ var handleKFDisconnect = function() {
         handleKFDisconnect();
     });
    };
-   handleKFDisconnect();
+//   handleKFDisconnect();
 
 //------------ Pages Routing -----------------------------
 app.get('/', function(req,res){
