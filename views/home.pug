@@ -30,7 +30,7 @@ html(lang='ko')
         #myNavbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li.active
-              a(href='./') Home
+              a(href='#') Home
             li
               a(href='#') About
             li
@@ -51,7 +51,11 @@ html(lang='ko')
       br
       .row
         .col-sm-3
-          p Some text..
+          p MySQL Area For TEST
+            ul
+              each topic in topics
+                li 
+                  a(href='/home/'+topic.id)= topic.title
           img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
         .col-sm-3
           p Some text..
