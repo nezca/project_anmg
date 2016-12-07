@@ -30,15 +30,13 @@ var db_config = {
 };
 
 var connection;
-
-function handleDisconnect() {
+function handleDisconnect(){
   connection = mysql.createConnection(db_config); 
-
   connection.connect(function(err) {              
-    if(err) {                                     
+    if(err) {
       console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000); 
-    }                                     
+      setTimeout(handleDisconnect, 2000);
+    }
   });                                     
                                          
   connection.on('error', function(err) {
@@ -49,9 +47,9 @@ function handleDisconnect() {
       throw err;                                  
     }
   });
-}
+};
 
-handleDisconnect();
+//handleDisconnect();
 
 //------------ Pages Routing -----------------------------
 app.get('/', function(req,res){
