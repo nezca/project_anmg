@@ -29,27 +29,50 @@ var db_config = {
   database : 'heroku_36ce9bdde949664'
 };
 
-var connection;
-function handleDisconnect(){
-  connection = mysql.createConnection(db_config); 
-  connection.connect(function(err) {              
-    if(err) {
-      console.log('error when connecting to db:', err);
-      setTimeout(handleDisconnect, 2000);
-    }
-  });                                     
-                                         
-  connection.on('error', function(err) {
-    console.log('db error', err);
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
-      handleDisconnect();                         
-    } else {                                      
-      throw err;                                  
-    }
-  });
-};
+//var connection;
+//function handleDisconnect(){
+//  connection = mysql.createConnection(db_config); 
+//  connection.connect(function(err) {              
+//    if(err) {
+//      console.log('error when connecting to db:', err);
+//      setTimeout(handleDisconnect, 2000);
+//    }
+//  });                                     
+//                                         
+//  connection.on('error', function(err) {
+//    console.log('db error', err);
+//    if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+//      handleDisconnect();                         
+//    } else {                                      
+//      throw err;                                  
+//    }
+//  });
+//};
 
 //handleDisconnect();
+
+//----------------------another way to sql connect ----
+
+var handleKFDisconnect = function() {
+    kfdb.on('error', function(err) {
+        if (!err.fatal) {
+            return;
+        }
+        if (err.code !== 'PROTOCOL_CONNECTION_LOST') {
+            console.log("PROTOCOL_CONNECTION_LOST");
+            throw err;
+        }
+        log.error("The database is error:" + err.stack);
+
+        kfdb = mysql.createConnection(kf_config);
+
+        console.log("kfid");
+
+        console.log(kfdb);
+        handleKFDisconnect();
+    });
+   };
+   handleKFDisconnect();
 
 //------------ Pages Routing -----------------------------
 app.get('/', function(req,res){
