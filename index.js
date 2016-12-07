@@ -11,15 +11,15 @@ app.set('view engine','pug');
 app.set('views', './views');
 
 //----------- MySQL setting -----------
-//var mysql      = require('mysql');
-//var connection = mysql.createConnection({
-//  host     : 'us-cdbr-iron-east-04.cleardb.net', 
-//  user     : 'b69910662a1301',
-//  password : '0c76890f',
-//  database : 'heroku_36ce9bdde949664'
-//});
-//
-//connection.connect();
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'us-cdbr-iron-east-04.cleardb.net', 
+  user     : 'b69910662a1301',
+  password : '0c76890f',
+  database : 'heroku_36ce9bdde949664'
+});
+
+connection.connect();
 
 //------------ Pages Routing -----------------------------
 app.get('/', function(req,res){
