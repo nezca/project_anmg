@@ -47,19 +47,19 @@ app.get('/', function(req,res){
     res.render('intro');
 });
 
-app.get('/home', function(req,res){
-    res.render('intro');
+app.get('/portfolio', function(req,res){
+    res.render('portfolio');
 });
 
 //------------ pages routinh for MySQL Test ----------
-app.get('/add', function(req,res){
+app.get('/DBTest', function(req,res){
   var sql = 'SELECT id,title FROM topic';
   connection.query(sql, function(err, topics, fields){
     if(err){
             console.log(err);
             res.status(500).send('what the fuck you!');
         }
-    res.render('add',{topics:topics});
+    res.render('DBTest',{topics:topics});
   });  
 });
 

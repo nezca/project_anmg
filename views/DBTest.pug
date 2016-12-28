@@ -4,13 +4,13 @@ html
 		meta(charset='utf-8')
 	body
 		h1
-			a(href='/') nezca's house
+			a(href='/') Able's Projects
 		ul
 			each topic in topics
 				li
-					a(href='/home/'+topic.id)= topic.title
+					a(href='/'+topic.id)= topic.title
 		article
-			form(action='/home/add' method='post')
+			form(action='/DBTest' method='post')
 				p
 					input(type='text' name='title' placeholder='title')
 				p
