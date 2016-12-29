@@ -1,83 +1,36 @@
 doctype html
 html(lang='ko')
   head
-    title Able's Projects
+    title My Real Trekking
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     style.
-      /* Remove the navbar's default margin-bottom and rounded borders */
-      .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
+      body {
+      margin-top: 100px;
+      margin-bottom: 100px;
+      margin-right: 150px;
+      margin-left: 80px;
       }
-      /* Add a gray background color and some padding to the footer */
-      footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-      }
-  body
-    nav.navbar.navbar-inverse
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='./') Able's Projects
-        #myNavbar.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li.active
-              a(href='./DBtest') intro_pug : DBTest
-            li
-              a(href='./portfolio') intro_pug : Portfolio
-            li
-              a(href='./yet') yet
-            li
-              a(href='#') Contact
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='#')
-                span.glyphicon.glyphicon-log-in
-                |  Login
-    .jumbotron
-      .container.text-center
-        h1 My Portfolio
-        p Some text that represents "Me"...
-    .container-fluid.bg-3.text-center
-      h3 Some of my Work
-      br
-      .row
-        .col-sm-3
-          p Some text..
-          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-        .col-sm-3
-          p Some text..
-          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-        .col-sm-3
-          p Some text..
-          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-        .col-sm-3
-          p Some text..
-          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-    br
-    .container-fluid.bg-3.text-center
-      .row
-        .col-sm-3
-          p Some text..
-          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-        .col-sm-3
-          p Some text..
-          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-        .col-sm-3
-          p Some text..
-          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-        .col-sm-3
-          p Some text..
-          img.img-responsive(src='https://placehold.it/150x80?text=IMAGE', style='width:100%', alt='Image')
-    br
-    br
-    footer.container-fluid.text-center
-      p Footer Text
+    
+body
+  .container
+  h1 원하는 조건들을 넣으세요
+  p 당신에게 꼭 맞는 트레킹 코스를 추천합니다.
+  br
+  form(action='/return', method='post')
+     label 난 이 거리 이상은 도저히 갈 수 가 없다!!!!
+       br
+       input(type='text' name='course_distance' placeholder='distance')
+     br
+     br
+     label 내 체력을(1)로 봤을때 이 이상은 무리다!!! 
+       br
+       input(type='text' name='course_difficulty' placeholder='difficulty')
+     br
+     br
+     br
+     p
+       input(type='submit' value='submit')

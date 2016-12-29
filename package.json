@@ -17,6 +17,7 @@
   "author": "nezca",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.18.5",
     "debug-log": "^1.0.1",
