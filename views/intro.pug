@@ -14,23 +14,36 @@ html(lang='ko')
       margin-right: 150px;
       margin-left: 80px;
       }
-    
-body
+  body
   .container
-  h1 원하는 조건들을 넣으세요
-  p 당신에게 꼭 맞는 트레킹 코스를 추천합니다.
+  h1 당신에게 꼭 맞는 트레킹 코스를 추천해드릴게요.
+  p 원하는 조건을 하나씩 선택하세요.
   br
   form(action='/return', method='post')
-     label 난 이 거리 이상은 도저히 갈 수 가 없다!!!!
+     label 트레킹도 좋지만 무리하지 맙시다!
        br
-       input(type='text' name='course_distance' placeholder='distance')
+       input(type='text' name='course_distance' placeholder='최대 트레킹 거리 예) 4000 ← 4km를 의미합니다.' size='50' autofocus)
      br
      br
-     label 내 체력을(1)로 봤을때 이 이상은 무리다!!! 
+     label 당신의 체력을 1로 봤을때 어느정도까지 괜찮은가요? 
        br
-       input(type='text' name='course_difficulty' placeholder='difficulty')
+       input(type='text' name='course_difficulty' placeholder='최대 체력 수준 예) 0.5 ← 50%를 의미합니다.' size='50'  autofocus)
      br
+     br
+     label 이불밖은 위험하지만, 돈이면 되니까!
+       br
+       input(type='text' name='course_budget' placeholder='대충 얼마 예상하세요? 예) 150000 ← 15만원입니다.' size='50'  autofocus)
+     br
+     br
+     label 그래도 하루에 이정도는 몸뚱이를 끌고 다닐수 있다!
+       br
+       input(type='text' name='course_duration' placeholder='몇 분은 가능할까요? 예) 100 ← 1시간 40분입니다.' size='50'  autofocus)
+     br
+     br
+     label 고산증이 있을 수도 있으니까!
+       br
+       input(type='text' name='course_summit' placeholder='높이를 적어주세요? 예) 8000 ← 8km입니다.' size='50'  autofocus)
      br
      br
      p
-       input(type='submit' value='submit')
+     input(type='submit' value='submit' required)  

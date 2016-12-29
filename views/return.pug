@@ -9,14 +9,26 @@ html(lang='ko')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     
     body
-      h1 당신 원하는 트레킹 코스!! 바로 여깄습니다.        
-      ol
+      h1 당신 원하는 트레킹 코스!! 바로 여깄습니다.
+      br
+      br
+      ul
         each course_test in trekking
-          li  
+          li 코스명 :   
             a(href='/'+trekking.course_name)=course_test.course_name
+          li 코스 길이 :  
+            a(href='/'+trekking.course_distance)=course_test.course_distance
+          li 코스 난이도 : 
+            a(href='/'+trekking.course_difficulty)=course_test.course_difficulty
+          li 코스 비용 :  
+            a(href='/'+trekking.course_budget)=course_test.course_budget
+          li 코스 시간 :  
+            a(href='/'+trekking.course_duration)=course_test.course_duration
+          li 코스 높이 :  
+            a(href='/'+trekking.course_summit)=course_test.course_summit
+          li 코스 설명 :  
+            a(href='/'+trekking.course_description)=course_test.course_description
+          br
+          br
       h3    
         a(href='/') 다시 조건 검색하기
-//      ul
-//        each course_test in trekking
-//          li  
-//            a(href='/'+trekking.course_name)=course_test.course_name

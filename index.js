@@ -56,8 +56,14 @@ app.get('/', function(req,res){
 app.post('/return', function(req,res){
   var distance = req.body.course_distance;
   var difficulty = req.body.course_difficulty;
-  var sql = 'SELECT * FROM course_test HAVING course_distance < ? and course_difficulty < ?';
-  connection.query(sql,[distance,difficulty], function(err, trekking, fields){
+  var budget = req.body.course_budget;
+  var duration = req.body.course_duration;
+  var summit = req.body.course_summit;
+  var description = req.body.course_description;
+  var sql = 'SELECT * FROM course_test HAVING course_distance < ? and course_difficulty < ? and course_budget < ? and course_duration < ? and course_summit < ?';
+  connection.query(sql,[distance,difficulty,budget,duration,summit], function(err, trekking, fields){
+//  var sql = 'SELECT * FROM course_test HAVING course_distance < ? or course_difficulty < ? or course_budget < ? or course_duration < ? or course_submit < ?';
+//  connection.query(sql,[distance,difficulty], function(err, trekking, fields){
     if(err){
       console.log(err);
       res.status(500).send('what the hell!');
