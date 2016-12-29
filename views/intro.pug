@@ -1,7 +1,7 @@
 doctype html
 html(lang='ko')
   head
-    title My Real Trekking
+    title 모두의 하이킹
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
@@ -22,28 +22,28 @@ html(lang='ko')
   form(action='/return', method='post')
      label 트레킹도 좋지만 무리하지 맙시다!
        br
-       input(type='text' name='course_distance' placeholder='최대 트레킹 거리 예) 4000 ← 4km' size='35' autofocus)
+       input(type='text' name='course_distance' placeholder='최대 트레킹 거리 예) 4000 ← 4km' size='35' autofocus required)
      br
      br
      label 얼만큼의 고강도의 운동을 감당하시나요? 
        br
-       input(type='text' name='course_difficulty' placeholder='최대 체력 수준 예) 0.5 ← 내 체력의 50%' size='35'  autofocus)
+       input(type='text' name='course_difficulty' placeholder='최대 체력 수준 예) 0.5 ← 내 체력의 50%' size='35'  autofocus required)
      br
      br
      label 이불밖은 위험하지만, 돈이면 되니까!
        br
-       input(type='text' name='course_budget' placeholder='예산은 얼마에요? 예) 150000 ← 15만원' size='35'  autofocus)
+       input(type='text' name='course_budget' placeholder='예산은 얼마에요? 예) 150000 ← 15만원' size='35'  autofocus required)
      br
      br
      label 이정도 시간정도는 내몸이 감당하겠지..
        br
-       input(type='text' name='course_duration' placeholder='분 단위로 적어주세요? 예) 100 ← 1시간 40분' size='35'  autofocus)
+       input(type='text' name='course_duration' placeholder='분 단위로 적어주세요? 예) 100 ← 1시간 40분' size='35'  autofocus required)
      br
      br
      label 고산증이 있을 수도 있으니까!
        br
-       input(type='text' name='course_summit' placeholder='높이를 적어주세요? 예) 8000 ← 8000미터' size='35'  autofocus)
+       input(type='text' name='course_summit' placeholder='높이를 적어주세요? 예) 8000 ← 8000미터' size='35'  autofocus required)
      br
      br
      p
-     input(type='submit' value='나에게 맞는 트레킹 코스 찾아보기' required)  
+     input(type='submit' value='나에게 맞는 트레킹 코스 찾아보기')  
