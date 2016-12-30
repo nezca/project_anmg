@@ -19,15 +19,15 @@ html(lang='en')
       padding:2px;
       text-align:center;
       height: 100%;
-      font-size: 27px;
+      font-size: 100%;
       }      
       p {
       font-size:20px;
       font-weight:bold;
       color:lightgray;
       }
-      #section1 {margin-top:20px; height: 310px; color: #fff; background-color: #1E88E5;}
-      #section2 {padding-top: 50px; margin-top:20px; height: 100%; color: #fff; background-color: #3c4342;}
+      #section1 {padding-left:20px; padding-right:20px; margin-top:20px; height: 100%; color: #fff; background-color: #1E88E5;}
+      #section2 {padding-left:20px; padding-right:20px; margin-top:20px; height: 100%; color: #fff; background-color: #3c4342;}
       input {
       background-color:#fff;
       color:#484545; 
@@ -41,6 +41,9 @@ html(lang='en')
       }
       }
       ul {
+      padding-top:30px;
+      margin-right:35px;
+      text-align:center;
       list-style:none;
       }
       #name {
@@ -59,22 +62,18 @@ html(lang='en')
         .col-sm-9
           form(action='/return', method='post')
             #section1
-              h1
+              h3
                 | "시크릿 하이킹"
                 br
                 br
-                | 소박하게 빛나고 있을,
+                | 소소히 빛나는
                 br
-                | 그 누구의 코스도 아닌,
-                br
-                | 오직 나만의 코스,
-                br   
-                br
-                | 바로 여기 있습니다.
+                | 나만의 트레킹 코스
             #section2             
               ul
                 each course_test in trekking
-                  li(id='name' trekking.course_name)=course_test.course_name     
+                  li(id='name' trekking.course_name)=course_test.course_name 
+                  br
                   li(trekking.course_distance)=course_test.course_distance+' 미터'
                   li(trekking.course_difficulty)=course_test.course_difficulty+' 수준'
                   li(trekking.course_budget)=course_test.course_budget+' 원'
