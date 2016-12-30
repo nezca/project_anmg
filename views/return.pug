@@ -7,28 +7,41 @@ html(lang='ko')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-    
-    body
-      h1 당신 원하는 트레킹 코스!! 바로 여깄습니다.
+    style.
+      body {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-right: 30px;
+      margin-left: 30px;
+      }
+      h1 {
+      font-weight:bold;
+      color:#4a4242;
+      }
+      #name {
+      font-weight:bold;
+      color:#3d3dd4;
+      }
+      
+  body
+  .container
+  h1 
+    | 바로 당신만을 위한,
+    br
+    br
+    | 하이킹 코스가 여기있네요!
+  br
+  br
+  ul
+    each course_test in trekking
+      li(id='name' trekking.course_name)=course_test.course_name     
+      li(trekking.course_distance)=course_test.course_distance+' 미터'
+      li(trekking.course_difficulty)=course_test.course_difficulty+' 수준'
+      li(trekking.course_budget)=course_test.course_budget+' 원'
+      li(trekking.course_duration)=course_test.course_duration+' 분'
+      li(trekking.course_summit)=course_test.course_summit+' 미터'
+      li(trekking.course_description)=course_test.course_description
       br
       br
-      ul
-        each course_test in trekking
-          li 코스명 :   
-            a(href='/'+trekking.course_name)=course_test.course_name
-          li 코스 길이 :  
-            a(href='/'+trekking.course_distance)=course_test.course_distance
-          li 코스 난이도 : 
-            a(href='/'+trekking.course_difficulty)=course_test.course_difficulty
-          li 코스 비용 :  
-            a(href='/'+trekking.course_budget)=course_test.course_budget
-          li 코스 시간 :  
-            a(href='/'+trekking.course_duration)=course_test.course_duration
-          li 코스 높이 :  
-            a(href='/'+trekking.course_summit)=course_test.course_summit
-          li 코스 설명 :  
-            a(href='/'+trekking.course_description)=course_test.course_description
-          br
-          br
-      h3    
-        a(href='/') 다시 조건 검색하기
+  h3    
+    a(href='/') 다시 검색하기
