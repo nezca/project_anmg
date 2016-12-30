@@ -1,48 +1,85 @@
 doctype html
-html(lang='ko')
+html(lang='en')
   head
-    title 모두의 하이킹
+    title 시크릿 하이킹
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     style.
-      body {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      margin-right: 10px;
-      margin-left: 10px;
+      body {      
+      position: relative;
       }
-      h1 {
+      ul.nav-pills {
+      top: 20px;
+      position: fixed;
+      }
+      div.col-sm-9 div {
+      padding:2px;
+      text-align:center;
+      height: 100%;
+      font-size: 27spx;
+      }      
+      p {
+      font-size:20px;
       font-weight:bold;
-      color:#4a4242;
+      color:lightgray;
+      }
+      #section1 {margin-top:20px; height: 310px; color: #fff; background-color: #1E88E5;}
+      #section2 {padding-top: 50px; margin-top:20px; height: 100%; color: #fff; background-color: #3c4342;}
+      input {
+      background-color:#fff;
+      color:#484545; 
+      border:none;
+      font-size: 35px;
+      font-weight:bold;
+      }
+      @media screen and (max-width: 810px) {
+      #section1, #section2{
+      margin-left: 130px;
+      }
+      }
+      ul {
+      list-style:none;
       }
       #name {
       font-weight:bold;
-      color:#3d3dd4;
+      font-size:25px;
       }
-      
-  body
-  .container
-  h1 
-    | 나만을 위해서,
-    br
-    | 소박하기 빛나는,
-    br
-    | 숨겨진 트레킹 코스
-  br
-  br
-  ul
-    each course_test in trekking
-      li(id='name' trekking.course_name)=course_test.course_name     
-      li(trekking.course_distance)=course_test.course_distance+' 미터'
-      li(trekking.course_difficulty)=course_test.course_difficulty+' 수준'
-      li(trekking.course_budget)=course_test.course_budget+' 원'
-      li(trekking.course_duration)=course_test.course_duration+' 분'
-      li(trekking.course_summit)=course_test.course_summit+' 미터'
-      li(trekking.course_description)=course_test.course_description
-      br
-      br
-  h4    
-    a(href='/') 다시 검색하기
+  body(data-spy='scroll', data-target='#myScrollspy', data-offset='20')
+    .container
+      .row
+        nav#myScrollspy.col-sm-3
+          ul.nav.nav-pills.nav-stacked
+            li.active
+              a(href='#') 모두의 하이킹?
+            li
+              a(href='/') 하이킹 재검색!         
+        .col-sm-9
+          form(action='/return', method='post')
+            #section1
+              h1
+                | "시크릿 하이킹"
+                br
+                br
+                | 소박하게 빛나고 있을,
+                br
+                | 그 누구의 코스도 아닌,
+                br
+                | 오직 나만의 코스,
+                br   
+                br
+                | 바로 여기 있습니다.
+            #section2             
+              ul
+                each course_test in trekking
+                  li(id='name' trekking.course_name)=course_test.course_name     
+                  li(trekking.course_distance)=course_test.course_distance+' 미터'
+                  li(trekking.course_difficulty)=course_test.course_difficulty+' 수준'
+                  li(trekking.course_budget)=course_test.course_budget+' 원'
+                  li(trekking.course_duration)=course_test.course_duration+' 분'
+                  li(trekking.course_summit)=course_test.course_summit+' 미터'
+                  li(trekking.course_description)=course_test.course_description
+                  br
+                  br

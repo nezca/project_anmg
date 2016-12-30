@@ -1,76 +1,129 @@
 doctype html
-html(lang='ko')
+html(lang='en')
   head
-    title 모두의 하이킹
+    title 시크릿 하이킹
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     style.
-      body {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      margin-right: 10px;
-      margin-left: 10px;
+      body {      
+      position: relative;
       }
-      h1 {
+      ul.nav-pills {
+      top: 20px;
+      position: fixed;
+      }
+      div.col-sm-9 div {
+      padding:2px;
+      text-align:center;
+      height: 100%;
+      font-size: 27spx;
+      }      
+      p {
+      font-size:20px;
       font-weight:bold;
-      color:#4a4242;
+      color:lightgray;
       }
-      label {
+      #section1 {padding-left:20px; padding-right:20px; margin-top:20px; height: 310px; color: #fff; background-color: #1E88E5;}
+      #section2 {padding-left:20px; padding-right:20px; margin-top:20px; color: #fff; background-color: #673ab7;}
+      #section3 {padding-left:20px; padding-right:20px; margin-top:20px; color: #fff; background-color: #ff9800;}
+      #section4 {padding-left:20px; padding-right:20px; margin-top:20px; color: #fff; background-color: #00bcd4;}
+      #section5 {padding-left:20px; padding-right:20px; margin-top:20px; color: #fff; background-color: #009688;}
+      #section6 {padding-left:20px; padding-right:20px; margin-top:20px; color: #fff; background-color: #3c4342;}
+      #section7 {padding-top:35px; text-align:center; height: 100px; color: #fff; background-color: #ffffff;}
+      #section7 input {
+      width:100%;
+      background-color:#fff;
+      color:#1E88E5; 
+      border:none;
+      font-size: 20px;
       font-weight:bold;
-      color:#334ee2;
       }
-  body
-  .container
-  h1
-    | 체력도 자신없고,
-    br
-    | 예산도 빡빡하지만,
-    br
-    | 그래도 어딘가에서,
-    br
-    | 오직 나만을 위해서,
-    br
-    | 소박하게 빛나는,
-    br
-    | 하이킹 코스를 찾나요?
-    br
-    br
-    br    
-  h4
-    | 꼭 맞는 코스를 제안하기 위해서
-    br
-    | 아래 빈칸을 모두 채워주세요. 
-  br
-  br
-
-  form(action='/return', method='post')
-     label 얼마나 멀리 걸을 수 있어요?
-       br
-       input(type='text' name='course_distance' placeholder='미터 단위로 적어주세요 예) 4000 ← 4km' size='36' autofocus required)
-     br
-     br
-     label 힘든걸 어느 정도까지 견딜 수 있어요? 
-       br
-       input(type='text' name='course_difficulty' placeholder='소수점 단위로 적어주세요 예) 0.5 ← 체력의 50%' size='36'  autofocus required)
-     br
-     br
-     label 예산은 얼마나 사용이 가능하세요?
-       br
-       input(type='text' name='course_budget' placeholder='원 단위로 적어주세요 예) 150000 ← 15만원' size='36'  autofocus required)
-     br
-     br
-     label 얼마나 오랫동안 걸으실 수 있어요?
-       br
-       input(type='text' name='course_duration' placeholder='분 단위로 적어주세요? 예) 100 ← 1시간 40분' size='36'  autofocus required)
-     br
-     br
-     label 얼마나 높게 올라가실 수 있어요?
-       br
-       input(type='text' name='course_summit' placeholder='미터 단위로 적어주세요 예) 8000 ← 8000미터' size='36'  autofocus required)
-     br
-     br
-     p
-     input(type='submit' value='검색')  
+      input {      
+      padding-left:20px;
+      width:100%;
+      background-color:#fff;
+      color:#484545; 
+      border:none;
+      font-size: 25px;
+      font-weight:bold;
+      }
+      @media screen and (max-width: 810px) {
+      #section1, #section2, #section3, #section4, #section5, #section6, #section7  {
+      margin-left: 130px;
+      }
+      }
+  body(data-spy='scroll', data-target='#myScrollspy', data-offset='20')
+    .container
+      .row
+        nav#myScrollspy.col-sm-3
+          ul.nav.nav-pills.nav-stacked
+            li.active
+              a(href='#') 모두의 하이킹?
+            li
+              a(href='#section2') 거리 입력
+            li
+              a(href='#section3') 난이도 입력
+            li
+              a(href='#section4') 예산 입력
+            li
+              a(href='#section5') 시간 입력 
+            li
+              a(href='#section6') 높이 입력
+            
+        .col-sm-9
+          form(action='/return', method='post')
+            #section1
+              h1
+                | 체력도 자신없고,
+                br
+                | 예산도 빡빡하지만,
+                br
+                | 그래도 어딘가에서,
+                br
+                | 오직 나만을 위해서,
+                br
+                | 소박하게 빛나는,
+                br
+                br
+                | 하이킹 코스를 찾나요?
+             
+            #section2
+              h1 얼마나 멀리 걸을 수 있어요?
+              br
+              p 미터 단위로 적어주세요 
+                br
+                br
+                input(type='text' name='course_distance' placeholder='예) 4000 ← 4km' autofocus required)
+            #section3
+              h1 힘든걸 어느 정도까지 견딜 수 있어요?
+              br
+              p 소수점 단위로 적어주세요 
+                br
+                br
+                input(type='text' name='course_difficulty' placeholder='예) 0.5 ← 체력의 50%' autofocus required)
+            #section4
+              h1 예산은 얼마나 사용이 가능하세요?
+              br
+              p 원 단위로 적어주세요
+                br
+                br
+                input(type='text' name='course_budget' placeholder='예) 150000 ← 15만원'   autofocus required)
+            #section5
+              h1 얼마나 오랫동안 걸으실 수 있어요?
+              br
+              p 분 단위로 적어주세요? 
+                br
+                br
+                input(type='text' name='course_duration' placeholder='예) 100 ← 1시간 40분' autofocus required)
+            #section6
+              h1 얼마나 높게 올라가실 수 있어요?
+              br
+              p 미터 단위로 적어주세요 
+                br
+                br
+                input(type='text' name='course_summit' placeholder='예) 8000 ← 8000미터' autofocus required)
+            #section7
+              input(type='submit' value='나만의 "시크릿 하이킹"을 검색하세요')  
