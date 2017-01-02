@@ -71,14 +71,18 @@ html(lang='en')
                 | 나만의 트레킹 코스
             #section2             
               ul
-                each course_test in trekking
-                  li(id='name' trekking.course_name)=course_test.course_name 
+                each exporttable in trekking                  
+                  li(id='name' trekking.course_name)=exporttable.course_name 
                   br
-                  li(trekking.course_distance)=course_test.course_distance+' 미터'
-                  li(trekking.course_difficulty)=course_test.course_difficulty+' 수준'
-                  li(trekking.course_budget)=course_test.course_budget+' 원'
-                  li(trekking.course_duration)=course_test.course_duration+' 분'
-                  li(trekking.course_summit)=course_test.course_summit+' 미터'
-                  li(trekking.course_description)=course_test.course_description
+                  br
+                  li(trekking.course_index)=exporttable.course_index                 
+                  li(trekking.course_distance)=exporttable.course_distance+' 미터'
+                  li(trekking.course_difficulty)=exporttable.course_difficulty+' 수준'
+                  li(trekking.course_duration)=exporttable.course_duration+' 분'
+                  li(trekking.course_budget)=exporttable.course_budget+' 원'
+                  li(trekking.course_googlemap_share_url)=exporttable.course_googlemap_share_url
+                  li(trekking.course_googlemap_normal_url)=exporttable.course_googlemap_normal_url
+                  li(trekking.course_video_url)=exporttable.course_video_url
+                  li(trekking.course_image_one)=exporttable.course_image_one
                   br
                   br
