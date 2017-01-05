@@ -55,16 +55,21 @@ app.get('/', function(req,res){
 
 app.post('/return', function(req,res){
   var id = req.body.course_id;
-  var index = req.body.course_index;
   var name = req.body.course_name;
+  var index = req.body.course_index;
   var distance = req.body.course_distance;
   var difficulty = req.body.course_difficulty;
   var duration = req.body.course_duration;
   var budget = req.body.course_budget;
-  var share = req.body.course_googlemap_share_url;
-  var normal = req.body.course_googlemap_normal_url;
-  var video = req.body.course_video_url;  
-  var image = req.body.course_image_one;
+  var youtube_nor = req.body.youtube_nor;
+  var youtube_emb = req.body.youtube_emb;
+  var map_nor = req.body.map_nor;
+  var map_emb = req.body.map_emb;
+  var iconmap_nor = req.body.map_nor;
+  var iconmap_emb = req.body.map_emb;
+  var fusion_nor = req.body.fusion_nor;
+  var fusion_emb = req.body.fusion_emb;
+  var text = req.body.text;
   var sql = 'SELECT * FROM exporttable HAVING course_distance < ? and course_difficulty < ? and course_budget < ? and course_duration < ?';
   connection.query(sql,[distance,difficulty,budget,duration], function(err, trekking, fields){
 //  var sql = 'SELECT * FROM course_test HAVING course_distance < ? or course_difficulty < ? or course_budget < ? or course_duration < ? or course_submit < ?';

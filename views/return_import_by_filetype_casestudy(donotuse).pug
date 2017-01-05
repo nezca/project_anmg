@@ -71,22 +71,46 @@ html(lang='ko')
                 | 나만의 트레킹 코스
             #section2             
               ul
-                each exporttable in trekking                  
-                  a(id='name' href=exporttable.course_index target='_blank')=exporttable.course_name 
+                each exporttable in trekking   
+                  // mysql db안의 value를 직접 가지고 오는 경우
+                  li(id='name' trekking.course_name)=exporttable.course_name 
                   br
                   br
+                  // mysql db안의 value가 aws s3에 저장되어 있는 html 파일의 일반 url인 경우 
+                  li(trekking.course_index)=exporttable.course_index
+                  a(href=exporttable.course_index target='_blank')=exporttable.course_name 
+                  
+                  // mysql db안의 value를 직접 가지고 오는 경우
                   li(trekking.course_distance)=exporttable.course_distance+' 미터'
                   li(trekking.course_difficulty)=exporttable.course_difficulty+' 수준'
                   li(trekking.course_duration)=exporttable.course_duration+' 분'
                   li(trekking.course_budget)=exporttable.course_budget+' 원'
+                  
+                  // mysql db안의 value가 embed가 가능한 외부 사이트 서버(예:구글맵, 유튜브, 퓨전테이블 등) 콘텐츠의 embed url인 경우
+                   // 유튜브 embed url
+                  li(trekking.youtube_emb)=exporttable.youtube_emb
+                  iframe(width='560' height='315' src='https://www.youtube.com/embed/iGmVQlATHkk')
                   iframe(width='560' height='315' src=exporttable.youtube_emb)
-                  br
+                 
+                   // 구글맵 일반 경로만 존재하는 맵의 embed url
+                  li(trekking.map_emb)=exporttable.map_emb
+                  iframe(width='560' height='315' src='https://www.google.com/maps/d/embed?mid=1dR8oEyByvCXaTg62mnGUX9AA6Tk' frameborder='0' allowfullscreen)
                   iframe(width='560' height='315' src=exporttable.map_emb frameborder='0' allowfullscreen)
-                  br
+                  
+                   // 구글맵 기타정보(사진,아이콘,외부링크)가 모두 기록된 맵의 embed url
+                  li(trekking.iconmap_emb)=exporttable.iconmap_emb
+                  iframe(width='560' height='315' src='https://www.google.com/maps/d/embed?mid=1gf8uNhZQKvL8ncvxaEMcTkF8bfc' frameborder='0' allowfullscreen)
                   iframe(width='560' height='315' src=exporttable.iconmap_emb frameborder='0' allowfullscreen)
-                  br
+                  
+                   // 퓨전테이블의 로케이션맵의 일반 url (* 추가 공부가 필요함. embed url은 작동하지 않음.)
+                  li(trekking.fusion_nor)=exporttable.fusion_nor
+                  iframe(width='560' height='315' src='https://fusiontables.google.com/embedviz?q=select+col2+from+1E2c0WWu66nJSMvWtkebAm3VgVW7goO6tYlUXYFhs+limit+1000&viz=HEATMAP&h=true&lat=37.50723648468597&lng=127.79535444941405&t=3&z=10&l=col2&y=2&tmplt=3&hmd=true&hmg=%2366ff0000%2C%2393ff00ff%2C%23c1ff00ff%2C%23eeff00ff%2C%23f4e300ff%2C%23f4e300ff%2C%23f9c600ff%2C%23ffaa00ff%2C%23ff7100ff%2C%23ff3900ff%2C%23ff0000ff&hmo=0.6&hmr=50&hmw=0&hml=GEOCODABLE' frameborder='0' allowfullscreen)
                   iframe(width='560' height='315' src=exporttable.fusion_nor frameborder='0' allowfullscreen)                  
-                  br              
-                  iframe(width='560' height='315' src=exporttable.text frameborder='0' allowfullscreen)                  
+                  
+                   // text(txt) 파일을 aws s3에 저장해서 iframe으로 가지고 오는 경우
+                  li(trekking.text)=exporttable.text
+                  iframe(width='560' height='315' src='https://s3.ap-northeast-2.amazonaws.com/huttonjithub/img/test.txt' frameborder='0' allowfullscreen)
+                  iframe(width='560' height='315' src=exporttable.text frameborder='0' allowfullscreen)
+                  
                   br
                   br
