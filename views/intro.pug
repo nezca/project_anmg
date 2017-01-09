@@ -7,124 +7,64 @@ html(lang='ko')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-    style.
-      body {   
-      position: relative;
-      }
-      ul.nav-pills {
-      top: 20px;
-      position: fixed;
-      }
-      div.col-sm-9 div {      
-      padding:2px;
-      text-align:center;
-      height: 100%;
-      font-size: 100%;
-      }      
-      p {
-      font-size:20px;
-      font-weight:bold;
-      color:lightgray;
-      }
-      #section1 {padding-left:20px; padding-right:20px; margin-top:20px; height: 100%; color: #fff; background-color: #1E88E5;}
-      #section2 {padding-left:20px; padding-right:20px; margin-top:20px; height: 100%;  color: #fff; background-color: #673ab7;}
-      #section3 {padding-left:20px; padding-right:20px; margin-top:20px; height: 100%;  color: #fff; background-color: #ff9800;}
-      #section4 {padding-left:20px; padding-right:20px; margin-top:20px; height: 100%;  color: #fff; background-color: #00bcd4;}
-      #section5 {padding-left:20px; padding-right:20px; margin-top:20px; height: 100%;  color: #fff; background-color: #009688;}
-      #section6 {padding-left:20px; padding-right:20px; margin-top:20px; height: 100%;  color: #fff; background-color: #3c4342;}
-      #section7 {padding-top:35px; text-align:center; height: 100px; color: #fff; background-color: #ffffff;}
-      #section7 input {
-      padding-right:30px;
-      width:100%;
-      background-color:#fff;
-      color:#1E88E5; 
-      border:none;
-      font-size: 100%;
-      font-weight:bold;
-      }
-      input {      
-      padding-left:20px;
-      width:100%;
-      background-color:#fff;
-      color:#484545; 
-      border:none;
-      font-size: 75%;
-      font-weight:bold;
-      }
-      @media screen and (max-width: 810px) {
-      #section1, #section2, #section3, #section4, #section5, #section6, #section7  {
-      margin-left: 130px;      
-      }
-      }
-  body(data-spy='scroll', data-target='#myScrollspy', data-offset='20')
-    .container
-      .row
-        nav#myScrollspy.col-sm-3
-          ul.nav.nav-pills.nav-stacked
-            li.active
-              a(href='#') project_anmg?
-            li
-              a(href='#section2') 거리 입력
-            li
-              a(href='#section3') 난이도 입력
-            li
-              a(href='#section4') 예산 입력
-            li
-              a(href='#section5') 시간 입력 
-            li
-              a(href='#section6') 높이 입력
-            
-        .col-sm-9
-          form(action='/return', method='post')
-            #section1
-              h3
-                | 체력도 예산도 부족하지만,
-                br
-                | 그래도 어딘가
-                br
-                | 나만을 위해서
-                br
-                | 소소히 빛나는,
-                br
-                br
-                | 하이킹 코스를 찾나요?
-             
-            #section2
-              h3 얼마나 멀리 걸을 수 있어요?
-              br
-              p 미터 단위로 적어주세요 
-                br
-                br
-                input(type='text' name='course_distance' placeholder='예) 4000 ← 4km' autofocus required)
-            #section3
-              h3 힘든걸 어느 정도까지 견딜 수 있어요?
-              br
-              p 소수점 단위로 적어주세요 
-                br
-                br
-                input(type='text' name='course_difficulty' placeholder='예) 0.5 ← 체력의 50%' autofocus required)
-            #section4
-              h3 예산은 얼마나 사용이 가능하세요?
-              br
-              p 원 단위로 적어주세요
-                br
-                br
-                input(type='text' name='course_budget' placeholder='예) 150000 ← 15만원'   autofocus required)
-            #section5
-              h3 얼마나 오랫동안 걸으실 수 있어요?
-              br
-              p 분 단위로 적어주세요? 
-                br
-                br
-                input(type='text' name='course_duration' placeholder='예) 100 ← 1시간 40분' autofocus required)
-            #section7
-              input(type='submit' value='클릭 ▶ 검색')                
-//            #section6
-//              h3 얼마나 높게 올라가실 수 있어요?
-//              br
-//              p 미터 단위로 적어주세요 
-//                br
-//                br
-//                input(type='text' name='course_summit' placeholder='예) 8000 ← 8000미터' autofocus required)
-            #section7
-              input(type='submit' value='클릭 ▶ 검색')  
+   
+  body
+    form(action='/return', method='post')
+      fieldset.form-group
+      legend 오늘은 어떤 길을 걸어보시겠어요?  
+      // 라디오 버튼 테스트
+      h4 어느정도까지 걸을수 있으세요?
+      .form-check
+        label.form-check-label
+          input#optionsRadios1.form-check-input(type='radio', name='distance', value='100000' required)
+          | 10km
+      .form-check
+        label.form-check-label
+          input#optionsRadios2.form-check-input(type='radio', name='distance', value='200000' required)
+          | 20km
+      .form-check
+        label.form-check-label
+          input#optionsRadios3.form-check-input(type='radio', name='distance', value='300000' required)
+          | 30km          
+          
+      // 단일선택 드롭다운 테스트   
+      h4 2. 누가 작성했나요?
+      .form-group
+        label(for='admin')
+        select#admin.form-control(name='admin' required)
+          option(value='안주현') 안주현
+          option(value='최석원') 최석원
+          option(value='김현승') 김현승
+          
+      h4 3. 난이도는 어느정도까지 괜찮으세요?
+      .form-group
+        label(for='difficulty')
+        select#difficulty.form-control(name='difficulty' required)
+          option(value='0.1') 10%정도 힘들어,,
+          option(value='0.2') 20%정도 힘들어,,
+          option(value='0.3') 30%정도 힘들어,,
+          option(value='0.4') 40%정도 힘들어,,
+          option(value='0.5') 50%정도 힘들어,,
+          option(value='0.6') 60%정도 힘들어,,
+          option(value='0.7') 70%정도 힘들어,,
+          option(value='0.8') 80%정도 힘들어,,
+          option(value='0.9') 90%정도 힘들어,, 
+          
+      input(type='submit' value='SEARCH..')    
+          
+      // 다중선택 드롭다운 테스트 : mysql에서 다중선택을 처리하는 SQL 필요하기때문에 이페이지에서는 테스트를 위해 단일로 처리함
+//      h4 3. 난이도는 어느정도까지 괜찮으세요?
+//      .form-group
+//        label(for='difficulty')
+//        select#difficulty.form-control(name='difficulty' multiple='')
+//          option(value='0.1') 10%정도 힘들어,,
+//          option(value='0.2') 20%정도 힘들어,,
+//          option(value='0.3') 30%정도 힘들어,,
+//          option(value='0.4') 40%정도 힘들어,,
+//          option(value='0.5') 50%정도 힘들어,,
+//          option(value='0.6') 60%정도 힘들어,,
+//          option(value='0.7') 70%정도 힘들어,,
+//          option(value='0.8') 80%정도 힘들어,,
+//          option(value='0.9') 90%정도 힘들어,,
+      
+   

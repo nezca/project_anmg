@@ -48,37 +48,48 @@ function handleDisconnect() {
 handleDisconnect();
 
 //------------ Pages Routing -------------------------
-    
+  //------------ 첫(조회) 페이지 -------------------------
 app.get('/', function(req,res){
   res.render('intro');
 });
+  //------------ 결과 페이지 ---------------
 
 app.post('/return', function(req,res){
-  var id = req.body.course_id;
-  var name = req.body.course_name;
-  var index = req.body.course_index;
-  var distance = req.body.course_distance;
-  var difficulty = req.body.course_difficulty;
-  var duration = req.body.course_duration;
-  var budget = req.body.course_budget;
-  var youtube_nor = req.body.youtube_nor;
-  var youtube_emb = req.body.youtube_emb;
-  var map_nor = req.body.map_nor;
-  var map_emb = req.body.map_emb;
-  var iconmap_nor = req.body.map_nor;
-  var iconmap_emb = req.body.map_emb;
-  var fusion_nor = req.body.fusion_nor;
-  var fusion_emb = req.body.fusion_emb;
-  var text = req.body.text;
-  var sql = 'SELECT * FROM exporttable HAVING course_distance < ? and course_difficulty < ? and course_budget < ? and course_duration < ?';
-  connection.query(sql,[distance,difficulty,budget,duration], function(err, trekking, fields){
-//  var sql = 'SELECT * FROM course_test HAVING course_distance < ? or course_difficulty < ? or course_budget < ? or course_duration < ? or course_submit < ?';
-//  connection.query(sql,[distance,difficulty], function(err, trekking, fields){
+  var name = req.body.name;
+  var admin = req.body.admin; 
+  var distance = req.body.distance;
+  var difficulty = req.body.difficulty;
+  var budget = req.body.budget;
+  var duration = req.body.duration;
+  var altitude = req.body.altitude;
+  var distance = req.body.distance;
+  var sql = 'SELECT * FROM exporttable WHERE distance < ? and difficulty < ? and enroll_admin = ? order by difficulty desc limit 5';
+  connection.query(sql,[distance,difficulty,admin], function(err, project_anmg, fields){
     if(err){
       console.log(err);
       res.status(500).send('what the hell!');
       }
-    res.render('return',{trekking:trekking});   
+    res.render('return',{project_anmg:project_anmg});   
+  });
+});
+  
+  //------------- 세부페이지 -----------------------
+app.post('/details', function(req,res){
+  var name = req.body.name;
+  var admin = req.body.admin; 
+  var distance = req.body.distance;
+  var difficulty = req.body.difficulty;
+  var budget = req.body.budget;
+  var duration = req.body.duration;
+  var altitude = req.body.altitude;
+  var distance = req.body.distance;
+  var sql = 'SELECT * FROM exporttable WHERE distance < ? and difficulty < ? and enroll_admin = ? order by difficulty desc limit 5';
+  connection.query(sql,[distance,difficulty,admin], function(err, project_anmg, fields){
+    if(err){
+      console.log(err);
+      res.status(500).send('what the hell!');
+      }
+    res.render('details',{project_anmg:project_anmg});   
   });
 });
 
