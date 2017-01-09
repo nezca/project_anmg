@@ -7,13 +7,7 @@ html(lang='ko')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-    style.
-      #brand{      
-      padding:4px;
-      height:100%;
-      color:#4040be;
-      font-size:3rem;
-      }
+   
   body
     .navbar.navbar-inverse
       .container-fluid
@@ -35,14 +29,11 @@ html(lang='ko')
                 | Log in
                 
     .container
-      #brand        
-        h1 project_anmg
-        h3 democratization of Trekking
       form(action='/return', method='post')
         fieldset.form-group
-        legend 오늘의 기분대로 걸어보세요.  
+        legend 오늘은 어떤 길을 걸어보시겠어요?  
         // 라디오 버튼 테스트
-        h4 1. 어느정도까지 걸을수 있으세요?
+        h4 어느정도까지 걸을수 있으세요?
         .form-check
           label.form-check-label
             input#optionsRadios1.form-check-input(type='radio', name='distance', value='100000' required)
@@ -79,4 +70,21 @@ html(lang='ko')
             option(value='0.8') 80%정도 힘들어,,
             option(value='0.9') 90%정도 힘들어,, 
 
-        input(type='submit' value='SEARCH..')
+        input(type='submit' value='SEARCH..')    
+          
+      // 다중선택 드롭다운 테스트 : mysql에서 다중선택을 처리하는 SQL 필요하기때문에 이페이지에서는 테스트를 위해 단일로 처리함
+//      h4 3. 난이도는 어느정도까지 괜찮으세요?
+//      .form-group
+//        label(for='difficulty')
+//        select#difficulty.form-control(name='difficulty' multiple='')
+//          option(value='0.1') 10%정도 힘들어,,
+//          option(value='0.2') 20%정도 힘들어,,
+//          option(value='0.3') 30%정도 힘들어,,
+//          option(value='0.4') 40%정도 힘들어,,
+//          option(value='0.5') 50%정도 힘들어,,
+//          option(value='0.6') 60%정도 힘들어,,
+//          option(value='0.7') 70%정도 힘들어,,
+//          option(value='0.8') 80%정도 힘들어,,
+//          option(value='0.9') 90%정도 힘들어,,
+      
+   
