@@ -9,48 +9,68 @@ html(lang='ko')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
    
   body
-    form(action='/return', method='post')
-      fieldset.form-group
-      legend 오늘은 어떤 길을 걸어보시겠어요?  
-      // 라디오 버튼 테스트
-      h4 어느정도까지 걸을수 있으세요?
-      .form-check
-        label.form-check-label
-          input#optionsRadios1.form-check-input(type='radio', name='distance', value='100000' required)
-          | 10km
-      .form-check
-        label.form-check-label
-          input#optionsRadios2.form-check-input(type='radio', name='distance', value='200000' required)
-          | 20km
-      .form-check
-        label.form-check-label
-          input#optionsRadios3.form-check-input(type='radio', name='distance', value='300000' required)
-          | 30km          
-          
-      // 단일선택 드롭다운 테스트   
-      h4 2. 누가 작성했나요?
-      .form-group
-        label(for='admin')
-        select#admin.form-control(name='admin' required)
-          option(value='안주현') 안주현
-          option(value='최석원') 최석원
-          option(value='김현승') 김현승
-          
-      h4 3. 난이도는 어느정도까지 괜찮으세요?
-      .form-group
-        label(for='difficulty')
-        select#difficulty.form-control(name='difficulty' required)
-          option(value='0.1') 10%정도 힘들어,,
-          option(value='0.2') 20%정도 힘들어,,
-          option(value='0.3') 30%정도 힘들어,,
-          option(value='0.4') 40%정도 힘들어,,
-          option(value='0.5') 50%정도 힘들어,,
-          option(value='0.6') 60%정도 힘들어,,
-          option(value='0.7') 70%정도 힘들어,,
-          option(value='0.8') 80%정도 힘들어,,
-          option(value='0.9') 90%정도 힘들어,, 
-          
-      input(type='submit' value='SEARCH..')    
+    .navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') project_anmg
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/')
+                span.glyphicon.glyphicon-user
+                | Sign Up
+            li
+              a(href='/')
+                span.glyphicon.glyphicon-log-in
+                | Log in
+                
+    .container
+      form(action='/return', method='post')
+        fieldset.form-group
+        legend 오늘은 어떤 길을 걸어보시겠어요?  
+        // 라디오 버튼 테스트
+        h4 어느정도까지 걸을수 있으세요?
+        .form-check
+          label.form-check-label
+            input#optionsRadios1.form-check-input(type='radio', name='distance', value='100000' required)
+            | 10km
+        .form-check
+          label.form-check-label
+            input#optionsRadios2.form-check-input(type='radio', name='distance', value='200000' required)
+            | 20km
+        .form-check
+          label.form-check-label
+            input#optionsRadios3.form-check-input(type='radio', name='distance', value='300000' required)
+            | 30km          
+
+        // 단일선택 드롭다운 테스트   
+        h4 2. 누가 작성했나요?
+        .form-group
+          label(for='admin')
+          select#admin.form-control(name='admin' required)
+            option(value='안주현') 안주현
+            option(value='최석원') 최석원
+            option(value='김현승') 김현승
+
+        h4 3. 난이도는 어느정도까지 괜찮으세요?
+        .form-group
+          label(for='difficulty')
+          select#difficulty.form-control(name='difficulty' required)
+            option(value='0.1') 10%정도 힘들어,,
+            option(value='0.2') 20%정도 힘들어,,
+            option(value='0.3') 30%정도 힘들어,,
+            option(value='0.4') 40%정도 힘들어,,
+            option(value='0.5') 50%정도 힘들어,,
+            option(value='0.6') 60%정도 힘들어,,
+            option(value='0.7') 70%정도 힘들어,,
+            option(value='0.8') 80%정도 힘들어,,
+            option(value='0.9') 90%정도 힘들어,, 
+
+        input(type='submit' value='SEARCH..')    
           
       // 다중선택 드롭다운 테스트 : mysql에서 다중선택을 처리하는 SQL 필요하기때문에 이페이지에서는 테스트를 위해 단일로 처리함
 //      h4 3. 난이도는 어느정도까지 괜찮으세요?

@@ -1,0 +1,24 @@
+li{
+list-style-type:none;
+padding-top:5px;
+padding:2px;
+}
+box{
+border:1px gray solid;
+}
+iframe{
+padding:2px;
+}
+
+/*
+li{
+list-style-type:none;
+padding-top:5px;
+padding:2px;
+}
+#box{
+border:1px gray solid;
+}
+iframe{
+padding:2px;
+}*/

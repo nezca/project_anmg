@@ -6,23 +6,73 @@ html(lang='ko')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-   
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')    
+    style.
+      li{
+      list-style-type:none;
+      padding-top:5px;
+      padding:2px;
+      }
+      #box{
+      border:2px #c1c1c1 solid;
+      }
+      iframe{
+      padding:2px;
+      }
+      
   body
-    ul
+    .navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') project_anmg
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/')
+                span.glyphicon.glyphicon-user
+                | Sign Up
+            li
+              a(href='/')
+                span.glyphicon.glyphicon-log-in
+                | Log in
+                
+    .container
       each exporttable in project_anmg
-        form(action='/details' method='post')
-          a(href='/details' target='_blank')=exporttable.map_name
-          input(type='submit' value='details')
+        #box
+          li(project_anmg.map_name style='text-align:center;')=exporttable.map_name  
+          iframe(src=exporttable.map_url frameborder='0' allowfullscreen width='100%' height='450')
           br
-          iframe(width='560' height='315' src=exporttable.map_url frameborder='0' allowfullscreen)
-          br
-          br
-          li(project_anmg.distance)=exporttable.distance+' 미터'
-          li(project_anmg.difficulty)=exporttable.difficulty+' 수준'
-          li(project_anmg.duration_h)=exporttable.duration_h+' 시간'
-          li(project_anmg.budget)=exporttable.budget+' 원'
-          li(project_anmg.name)=exporttable.course_name_2
-          li(project_anmg.admin)=exporttable.enroll_admin+' 원'
-          br
-          br
+          li  
+            table.table.table-hover.table-inverse
+              thead
+                tr
+                  th 항목
+                  th 내용                  
+              tbody
+                tr
+                  th(scope='row') 시작지점 주소
+                  td
+                tr
+                  th(scope='row') 종료지점 주소
+                  td
+                tr
+                  th(scope='row') 코스의 총거리
+                  td(project_anmg.distance)=exporttable.distance+' m'     
+                tr
+                  th(scope='row') 코스의 최고높이
+                  td(project_anmg.budget)=exporttable.altitude+' m'        
+                tr
+                  th(scope='row') 코스의 난이도
+                  td(project_anmg.budget)=exporttable.difficulty        
+                tr
+                  th(scope='row') 필요 예산
+                  td(project_anmg.budget)=exporttable.budget+' 원'  
+                tr
+                  th(scope='row') 추천 운영자
+                  td(project_anmg.admin)=exporttable.enroll_admin
+        br
+           

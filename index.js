@@ -71,27 +71,7 @@ app.post('/return', function(req,res){
       }
     res.render('return',{project_anmg:project_anmg});   
   });
-});
-  
-  //------------- 세부페이지 -----------------------
-app.post('/details', function(req,res){
-  var name = req.body.name;
-  var admin = req.body.admin; 
-  var distance = req.body.distance;
-  var difficulty = req.body.difficulty;
-  var budget = req.body.budget;
-  var duration = req.body.duration;
-  var altitude = req.body.altitude;
-  var distance = req.body.distance;
-  var sql = 'SELECT * FROM exporttable WHERE distance < ? and difficulty < ? and enroll_admin = ? order by difficulty desc limit 5';
-  connection.query(sql,[distance,difficulty,admin], function(err, project_anmg, fields){
-    if(err){
-      console.log(err);
-      res.status(500).send('what the hell!');
-      }
-    res.render('details',{project_anmg:project_anmg});   
-  });
-});
+});  
 
 //----- node.js tutorial's app.listen method -----
 app.listen(app.get('port'), function() {
