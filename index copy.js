@@ -55,11 +55,25 @@ app.get('/', function(req,res){
   //------------ 결과 페이지 ---------------
 
 app.post('/return', function(req,res){
-  var duration_rate = req.body.duration_rate;
-  var difficulty_index = req.body.difficulty_index; 
+  var map_name = req.body.map_name;
+  var route_type = req.body.route_type; 
+  var origin_address = req.body.origin_address;
+  var destination_address = req.body.destination_address;
+  var distance = req.body.distance;
+  var duration_type : req.body.duration_type;
+  var altitude_start : req.body.altitude_start;
+  var altitude_end : req.body.altitude_end;
+  var altitude_top : req.body.altitude_top;
+  var altitude_vertical_gap : req.body.altitude_vertical_gap;
+  var difficulty_type = req.body.difficulty_type;
   var budget = req.body.budget;
-  var sql = 'SELECT * FROM exporttable WHERE duration_rate <= ? and difficulty_index <= ? and budget <= ?';
-  connection.query(sql,[duration_rate, difficulty_index, budget], function(err, project_anmg, fields){
+  var recommend_type = req.body.recommend_type;
+  var enroll_admin = req.body.enroll_admin;
+  var enroll_date = req.body.enroll_date;
+  var map_url = req.body.map_url;
+  var course_type = req.body.course_type;
+  var sql = 'SELECT * FROM exporttable WHERE distance < ? and duration_type = ? and difficulty_type = ? order by altitude_top desc limit 3';
+  connection.query(sql,[distance,duration_type,difficulty_type], function(err, project_anmg, fields){
     if(err){
       console.log(err);
       res.status(500).send('what the hell!');

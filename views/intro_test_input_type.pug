@@ -1,0 +1,85 @@
+doctype html
+html(lang='ko')
+  head
+    title project_anmg
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    style.
+      #brand{      
+      padding:4px;
+      height:100%;
+      color:#4040be;
+      font-size:3rem;
+      }
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar            
+          a.navbar-brand(href='/') project_anmg
+            .span.glyphicon.glyphicon-grain(style='color:green;')    
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/')
+                span.glyphicon.glyphicon-user
+                | Sign Up
+            li
+              a(href='/')
+                span.glyphicon.glyphicon-log-in
+                | Log in
+                
+    .container(style='margin-top:60px;')
+      #brand        
+        h1 project_anmg
+        h3 democratization of Trekking
+      form(action='/return', method='post')
+        fieldset.form-group
+        legend 오늘의 기분대로 걸어보세요.  
+        // 라디오 버튼 테스트
+       
+        h4 1. 어느정도까지 걸을수 있으세요?
+        .form-check
+          label.form-check-label
+            input#optionsRadios1.form-check-input(type='radio', name='distance', value='5000' required)
+            | 5km
+        .form-check
+          label.form-check-label
+            input#optionsRadios2.form-check-input(type='radio', name='distance', value='10000' required)
+            | 10km
+        .form-check
+          label.form-check-label
+            input#optionsRadios3.form-check-input(type='radio', name='distance', value='15000' required)
+            | 15km
+        .form-check
+          label.form-check-label
+            input#optionsRadios3.form-check-input(type='radio', name='distance', value='20000' required)
+            | 20km 
+       
+        h4 2. 거리는 어느정도가 적당하겠어요?
+        .form-group
+          label(for='duration')
+          select#duration.form-control(name='duration_type' required)
+            option(value='산책코스') 산책코스
+            option(value='반일코스') 반일코스
+            option(value='당일코스') 당일코스
+            option(value='1박2일코스') 1박2일코스
+            option(value='2박3일코스') 2박3일코스
+            option(value='3박이상코스') 3박이상코스
+       
+        h4 3. 난이도는 어느정도가 적당하겠어요?
+        .form-group
+          label(for='difficulty')
+          select#difficulty.form-control(name='difficulty_type' required)
+            option(value='정말 쉬워요') 정말 쉬워요
+            option(value='별로 힘들지않아요') 별로 힘들지않아요
+            option(value='조금 힘들어요') 조금 힘들어요
+            option(value='많이 힘들어요') 많이 힘들어요
+
+        input(type='submit' value='SEARCH..')

@@ -8,6 +8,11 @@ html(lang='ko')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')    
     style.
+      #name{
+      color:#3f3fd0;   
+      font-weight:bold;
+      font-size:2rem;
+      }
       li{
       list-style-type:none;
       padding-top:5px;
@@ -21,7 +26,7 @@ html(lang='ko')
       }
       
   body
-    .navbar.navbar-inverse
+    .navbar.navbar-inverse.navbar-fixed-top
       .container-fluid
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
@@ -29,6 +34,7 @@ html(lang='ko')
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/') project_anmg
+            .span.glyphicon.glyphicon-grain(style='color:green;')
         #myNavbar.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
@@ -40,11 +46,11 @@ html(lang='ko')
                 span.glyphicon.glyphicon-log-in
                 | Log in
                 
-    .container
+    .container(style='margin-top:60px;')
       each exporttable in project_anmg
         #box
-          li(project_anmg.map_name style='text-align:center;')=exporttable.map_name  
-          iframe(src=exporttable.map_url frameborder='0' allowfullscreen width='100%' height='450')
+          li(id='name' project_anmg.temporary_address_summary)=exporttable.temporary_address_summary 
+          iframe(src=exporttable.map_url frameborder='0' allowfullscreen width='100%' height='400')
           br
           li  
             table.table.table-hover.table-inverse
@@ -54,24 +60,56 @@ html(lang='ko')
                   th 내용                  
               tbody
                 tr
+                  th(scope='row')
+                tr
+                  th(scope='row') 소속 산 이름
+                  td(project_anmg.mt_name)=exporttable.mt_name 
+                tr
+                  th(scope='row') 코스의 성향
+                  td(project_anmg.expectation_type)=exporttable.expectation_type 
+                tr
+                  th(scope='row') 코스의 회귀 타입
+                  td(project_anmg.route_type)=exporttable.route_type      
+                tr
                   th(scope='row') 시작지점 주소
-                  td
+                  td(project_anmg.origin_address)=exporttable.origin_address 
                 tr
                   th(scope='row') 종료지점 주소
-                  td
+                  td(project_anmg.destination_address)=exporttable.destination_address 
                 tr
                   th(scope='row') 코스의 총거리
-                  td(project_anmg.distance)=exporttable.distance+' m'     
+                  td(project_anmg.distance)=exporttable.distance+' m' 
                 tr
-                  th(scope='row') 코스의 최고높이
-                  td(project_anmg.budget)=exporttable.altitude+' m'        
+                  th(scope='row') 코스의 주파 예상 시간
+                  td(project_anmg.duration)=exporttable.duration 
+                tr
+                  th(scope='row') 코스의 걸리는 시간 타입
+                  td(project_anmg.duration_type)=exporttable.duration_type 
+                tr
+                  th(scope='row') 코스의 시작 지점 높이
+                  td(project_anmg.altitude_start)=exporttable.altitude_start+' m'     
+                tr
+                  th(scope='row') 코스의 종료 지점 높이
+                  td(project_anmg.altitude_end)=exporttable.altitude_end+' m'  
+                tr
+                  th(scope='row') 코스의 최고 지점 높이
+                  td(project_anmg.altitude_top)=exporttable.altitude_top+' m'  
+                tr
+                  th(scope='row') 코스의 등반 표고차
+                  td(project_anmg.altitude_vertical_gap)=exporttable.altitude_vertical_gap+' m'  
                 tr
                   th(scope='row') 코스의 난이도
-                  td(project_anmg.budget)=exporttable.difficulty        
+                  td(project_anmg.difficulty_type)=exporttable.difficulty_type        
                 tr
                   th(scope='row') 필요 예산
                   td(project_anmg.budget)=exporttable.budget+' 원'  
                 tr
+                  th(scope='row') 추천 평점
+                  td(project_anmg.recommend_type)=exporttable.recommend_type
+                tr
                   th(scope='row') 추천 운영자
-                  td(project_anmg.admin)=exporttable.enroll_admin
+                  td(project_anmg.enroll_admin)=exporttable.enroll_admin  
+                tr
+                  th(scope='row') 데이터 작성일
+                  td(project_anmg.enroll_date)=exporttable.enroll_date
         br          

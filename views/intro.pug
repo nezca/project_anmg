@@ -15,14 +15,15 @@ html(lang='ko')
       font-size:3rem;
       }
   body
-    .navbar.navbar-inverse
+    .navbar.navbar-inverse.navbar-fixed-top
       .container-fluid
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
             span.icon-bar
             span.icon-bar
-            span.icon-bar
+            span.icon-bar            
           a.navbar-brand(href='/') project_anmg
+            .span.glyphicon.glyphicon-grain(style='color:green;')    
         #myNavbar.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
@@ -34,49 +35,44 @@ html(lang='ko')
                 span.glyphicon.glyphicon-log-in
                 | Log in
                 
-    .container
-      #brand        
-        h1 project_anmg
-        h3 democratization of Trekking
+    .container(style='margin-top:60px;')
+      #brand
+        img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/project_anmg_main.png', alt='aproject_anmg_main' width='100%')        
       form(action='/return', method='post')
         fieldset.form-group
-        legend 오늘의 기분대로 걸어보세요.  
-        // 라디오 버튼 테스트
-        h4 1. 어느정도까지 걸을수 있으세요?
-        .form-check
-          label.form-check-label
-            input#optionsRadios1.form-check-input(type='radio', name='distance', value='100000' required)
-            | 10km
-        .form-check
-          label.form-check-label
-            input#optionsRadios2.form-check-input(type='radio', name='distance', value='200000' required)
-            | 20km
-        .form-check
-          label.form-check-label
-            input#optionsRadios3.form-check-input(type='radio', name='distance', value='300000' required)
-            | 30km          
-
-        // 단일선택 드롭다운 테스트   
-        h4 2. 누가 작성했나요?
+        legend 자,,떠날 준비 되셨나요??        
+       
+        h4 트레킹 기간은 어느정도까지는 괜찮으세요?
         .form-group
-          label(for='admin')
-          select#admin.form-control(name='admin' required)
-            option(value='안주현') 안주현
-            option(value='최석원') 최석원
-            option(value='김현승') 김현승
-
-        h4 3. 난이도는 어느정도까지 괜찮으세요?
+          label(for='duration_rate')
+          select#duration_rate.form-control(name='duration_rate' required)
+            option(value='0') 산책코스
+            option(value='1') 당일코스
+            option(value='2') 1박2일코스
+            option(value='3') 2박3일코스
+            option(value='4') 3박이상코스
+        
+        h4 트레킹 난이도는 어느정도까지는 괜찮으세요?
         .form-group
-          label(for='difficulty')
-          select#difficulty.form-control(name='difficulty' required)
-            option(value='0.1') 10%정도 힘들어,,
-            option(value='0.2') 20%정도 힘들어,,
-            option(value='0.3') 30%정도 힘들어,,
-            option(value='0.4') 40%정도 힘들어,,
-            option(value='0.5') 50%정도 힘들어,,
-            option(value='0.6') 60%정도 힘들어,,
-            option(value='0.7') 70%정도 힘들어,,
-            option(value='0.8') 80%정도 힘들어,,
-            option(value='0.9') 90%정도 힘들어,, 
-
+          label(for='difficulty_index')
+          select#difficulty_index.form-control(name='difficulty_index' required)
+            option(value='1') 정말 쉬워요
+            option(value='2') 별로 힘들지 않아요
+            option(value='3') 조금 힘들어요
+            option(value='4') 많이 힘들어요    
+       
+        h4 트레킹 여행 예산은 얼마정도 생각하세요?
+        .form-group
+          label(for='budget')
+          select#budget.form-control(name='budget' required)
+            option(value='5000') 5천원
+            option(value='10000') 1만원
+            option(value='20000') 2만원
+            option(value='30000') 3만원
+            option(value='50000') 5만원  
+            option(value='80000') 8만원
+            option(value='100000') 10만원
+            option(value='150000') 15만원
+            option(value='200000') 20만원
+            
         input(type='submit' value='SEARCH..')
