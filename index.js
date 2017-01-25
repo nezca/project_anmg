@@ -58,7 +58,7 @@ app.post('/return', function(req,res){
   var duration_rate = req.body.duration_rate;
   var difficulty_index = req.body.difficulty_index; 
   var budget = req.body.budget;
-  var sql = 'SELECT * FROM exporttable WHERE duration_rate <= ? and difficulty_index <= ? and budget <= ?';
+  var sql = 'SELECT * FROM exporttable WHERE duration_rate <= ? and difficulty_index <= ? and budget <= ? order by recommend_average desc limit 3';
   connection.query(sql,[duration_rate, difficulty_index, budget], function(err, project_anmg, fields){
     if(err){
       console.log(err);
