@@ -11,7 +11,7 @@ html(lang='ko')
       #name{
       color:#3f3fd0;   
       font-weight:bold;
-      font-size:2rem;
+      font-size:120%;
       }
       li{
       list-style-type:none;
@@ -24,7 +24,14 @@ html(lang='ko')
       iframe{
       padding:2px;
       }
-      
+      th{
+      color:#3f3fd0;
+      font-size:80%
+      }
+      td{
+      font-weight:bold;
+      font-size:60%;
+      }
   body
     .navbar.navbar-inverse.navbar-fixed-top
       .container-fluid
@@ -49,8 +56,7 @@ html(lang='ko')
     .container(style='margin-top:60px;')
       each exporttable in project_anmg
         #box
-          li(id='name' project_anmg.temporary_address_summary)=exporttable.temporary_address_summary 
-          iframe(src=exporttable.map_url frameborder='0' allowfullscreen width='100%' height='400')
+          iframe(src=exporttable.map_url frameborder='0' allowfullscreen width='100%' height='300')
           br
           li  
             table.table.table-hover.table-inverse
@@ -62,54 +68,54 @@ html(lang='ko')
                 tr
                   th(scope='row')
                 tr
-                  th(scope='row') 소속 산 이름
-                  td(project_anmg.mt_name)=exporttable.mt_name 
+                  th(scope='row') 산 이름
+                  td(project_anmg.mt_name)=exporttable.mt_name
                 tr
-                  th(scope='row') 코스의 성향
-                  td(project_anmg.expectation_type)=exporttable.expectation_type 
+                  th(scope='row') 코스의 거리
+                  td(project_anmg.distance_trans)=exporttable.distance_trans  
                 tr
-                  th(scope='row') 코스의 회귀 타입
-                  td(project_anmg.route_type)=exporttable.route_type      
+                  th(scope='row') 완주 시간
+                  td(project_anmg.duration)=exporttable.duration
                 tr
-                  th(scope='row') 시작지점 주소
-                  td(project_anmg.origin_address)=exporttable.origin_address 
+                  th(scope='row') 코스 난이도
+                  td(project_anmg.difficulty_type)=exporttable.difficulty_type
                 tr
-                  th(scope='row') 종료지점 주소
-                  td(project_anmg.destination_address)=exporttable.destination_address 
+                  th(scope='row') 코스 타입
+                  td(project_anmg.duration_type)=exporttable.duration_type
                 tr
-                  th(scope='row') 코스의 총거리
-                  td(project_anmg.distance)=exporttable.distance+' m' 
+                  th(scope='row') 1명당 예산
+                  td(project_anmg.budget)=exporttable.budget+' 원' 
                 tr
-                  th(scope='row') 코스의 주파 예상 시간
-                  td(project_anmg.duration)=exporttable.duration 
-                tr
-                  th(scope='row') 코스의 걸리는 시간 타입
-                  td(project_anmg.duration_type)=exporttable.duration_type 
-                tr
-                  th(scope='row') 코스의 시작 지점 높이
+                  th(scope='row') 시작점 고도
                   td(project_anmg.altitude_start)=exporttable.altitude_start+' m'     
                 tr
-                  th(scope='row') 코스의 종료 지점 높이
+                  th(scope='row') 종료점 고도
                   td(project_anmg.altitude_end)=exporttable.altitude_end+' m'  
                 tr
-                  th(scope='row') 코스의 최고 지점 높이
+                  th(scope='row') 최고점 고도
                   td(project_anmg.altitude_top)=exporttable.altitude_top+' m'  
                 tr
-                  th(scope='row') 코스의 등반 표고차
-                  td(project_anmg.altitude_vertical_gap)=exporttable.altitude_vertical_gap+' m'  
+                  th(scope='row') 등반 표고차
+                  td(project_anmg.altitude_vertical_gap)=exporttable.altitude_vertical_gap+' m'
                 tr
-                  th(scope='row') 코스의 난이도
-                  td(project_anmg.difficulty_type)=exporttable.difficulty_type        
+                  th(scope='row') 코스 스타일
+                  td(project_anmg.expectation_type)=exporttable.expectation_type 
                 tr
-                  th(scope='row') 필요 예산
-                  td(project_anmg.budget)=exporttable.budget+' 원'  
+                  th(scope='row') 복귀 스타일
+                  td(project_anmg.route_type)=exporttable.route_type 
                 tr
                   th(scope='row') 추천 평점
                   td(project_anmg.recommend_type)=exporttable.recommend_type
                 tr
+                  th(scope='row') 시작점 주소
+                  td(project_anmg.origin_address)=exporttable.origin_address 
+                tr
+                  th(scope='row') 종료점 주소
+                  td(project_anmg.destination_address)=exporttable.destination_address
+                tr
                   th(scope='row') 추천 운영자
                   td(project_anmg.enroll_admin)=exporttable.enroll_admin  
                 tr
-                  th(scope='row') 데이터 작성일
+                  th(scope='row') 트레킹 일자
                   td(project_anmg.enroll_date)=exporttable.enroll_date
         br          
