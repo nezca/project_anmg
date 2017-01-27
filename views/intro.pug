@@ -22,30 +22,30 @@ html(lang='ko')
             span.icon-bar
             span.icon-bar
             span.icon-bar            
-          a.navbar-brand(href='/') project_anmg
-            .span.glyphicon.glyphicon-grain(style='color:green;')    
+          a.navbar-brand(href='/') project_anmg   
         #myNavbar.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
               a(href='/')
                 span.glyphicon.glyphicon-user
-                | Sign Up
+                |  Sign Up
             li
               a(href='/')
                 span.glyphicon.glyphicon-log-in
-                | Log in
+                |  Log in
                 
     .container(style='margin-top:60px;')
       #brand
         img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/project_anmg_main_2.png', alt='project_anmg_main_2' width='100%')        
       form(action='/return', method='post')
         fieldset.form-group
-        legend Project_anmg        
+        legend         
        
         h4 트레킹 기간은 어느정도까지는 괜찮으세요?
         .form-group
           label(for='duration_rate')
           select#duration_rate.form-control(name='duration_rate' required)
+            option(value='4') 선택없음
             option(value='0') 산책코스
             option(value='1') 당일코스
             option(value='2') 1박2일코스
@@ -56,6 +56,7 @@ html(lang='ko')
         .form-group
           label(for='difficulty_index')
           select#difficulty_index.form-control(name='difficulty_index' required)
+            option(value='4') 선택없음
             option(value='1') 정말 쉬워요
             option(value='2') 별로 힘들지 않아요
             option(value='3') 조금 힘들어요
@@ -65,6 +66,7 @@ html(lang='ko')
         .form-group
           label(for='budget')
           select#budget.form-control(name='budget' required)
+            option(value='999999999') 선택없음
             option(value='5000') 5천원
             option(value='10000') 1만원
             option(value='20000') 2만원
