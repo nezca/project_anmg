@@ -25,16 +25,15 @@ html(lang='ko')
         
         h4 국가를 선택하세요
         .form-group
-          select.form-control(name='temporary_address_div' required)
-            option(value='3') 선택 없음
-            option(value='1') 국내 코스
-            option(value='2') 해외 코스            
+          select#temporary_address_div.form-control(name='temporary_address_div' required)
+            option(value='국내코스') 국내 코스
+            option(value='해외코스') 해외 코스            
         legend 
                 
-        h4 지역을 선택하세요
+        h4 도시를 선택하세요
         .form-group
-          select.form-control(name='province_code' required)
-            option(value='20') 선택 없음
+          label(for='province_code')
+          select#province_code.form-control(name='province_code' required)
             option(value='1') 서울특별시
             option(value='2') 부산광역시
             option(value='3') 대구광역시
@@ -54,17 +53,18 @@ html(lang='ko')
             option(value='17') 제주특별자치도
         legend
                 
-        h4 주변 환경을 선택하세요
+        h4 환경을 선택하세요
         .form-group
-          select.form-control(name='course_type' required)
-            option(value='3') 선택 없음
+          label(for='course_type')
+          select#course_type.form-control(name='course_type' required)
             option(value='1') 자연속 코스
             option(value='2') 도심속 코스           
         legend 
         
         h4 기간을 선택하세요
         .form-group
-          select.form-control(name='duration_rate' required)
+          label(for='duration_rate')
+          select#duration_rate.form-control(name='duration_rate' required)
             option(value='4') 선택 없음
             option(value='0') 산책 코스
             option(value='1') 당일 코스
@@ -75,7 +75,8 @@ html(lang='ko')
         
         h4 난이도를 선택하세요
         .form-group
-          select.form-control(name='difficulty_index' required)
+          label(for='difficulty_index')
+          select#difficulty_index.form-control(name='difficulty_index' required)
             option(value='4') 선택 없음
             option(value='1') 정말 쉬워요
             option(value='2') 별로 힘들지 않아요
@@ -85,7 +86,8 @@ html(lang='ko')
        
         h4 예산을 선택하세요
         .form-group
-          select.form-control(name='budget' required)
+          label(for='budget')
+          select#budget.form-control(name='budget' required)
             option(value='999999999') 선택 없음
             option(value='10000') 1만원 이하
             option(value='20000') 2만원 이하

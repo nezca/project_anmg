@@ -32,27 +32,8 @@ html(lang='ko')
       font-weight:bold;
       font-size:80%;
       }
-  body
-    .navbar.navbar-inverse.navbar-fixed-top
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') project_anmg
-        #myNavbar.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/')
-                span.glyphicon.glyphicon-user
-                |  Sign Up
-            li
-              a(href='/')
-                span.glyphicon.glyphicon-log-in
-                |  Log in
-                
-    .container(style='margin-top:60px;')
+  body           
+    .container(style='margin-top:15px;')
       each exporttable in project_anmg
         #box
           iframe(src=exporttable.map_url frameborder='0' allowfullscreen width='100%' height='300')
