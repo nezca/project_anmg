@@ -8,29 +8,28 @@ html(lang='ko')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')    
     style.
-      #name{
-      color:#3f3fd0;   
-      font-weight:bold;
-      font-size:120%;
-      }
+      .table.table-hover.table-inverse{
+      margin-bottom:0px;      
+      }      
       li{
       list-style-type:none;
-      padding-top:5px;
-      padding:2px;
+      padding-top:5px;      
+      padding:2px;      
       }
       #box{
-      border:2px #c1c1c1 solid;
+      border:1px #ffffff solid;
       }
       iframe{
       padding:2px;
       }
       th{
-      color:#3f3fd0;
-      font-size:80%
+      color:#ffffff;          
       }
       td{
-      font-weight:bold;
-      font-size:80%;
+      color:#ffffff;
+      } 
+      body{
+      background-color:#313a4e;
       }
   body           
     .container(style='margin-top:15px;')
@@ -46,7 +45,7 @@ html(lang='ko')
                   th 내용                  
               tbody
                 tr
-                  th(scope='row')
+                  th(scope='row' style='padding-top:0px;')
                 tr
                   th(scope='row') 산 이름
                   td(project_anmg.mt_name)=exporttable.mt_name

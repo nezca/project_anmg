@@ -8,22 +8,71 @@ html(lang='ko')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     style.
-      #brand{      
-      padding:4px;
-      height:100%;
-      color:#4040be;
-      font-size:3rem;
+      legend{
+      margin-bottom:0px;
       }
-      
+      h5{
+      color:white;
+      font-weight:bold;
+      padding-left:10px;
+      padding-right:10px;
+      margin-bottom:5px;
+      }      
+      .container{
+      padding-left:0px;
+      padding-right:0px;
+      }
+      .form-group{
+      padding-left:10px;
+      padding-right:10px;
+      margin-bottom:10px;
+      }  
+      body{
+      background-color:#313a4e;
+      }
   body
-    .container(style='margin-top:15px;')
-      #brand
-        img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/project_anmg_main_2.png', alt='project_anmg_main_2' width='100%')        
+    .container
+      #myCarousel.carousel.slide(data-ride='carousel')
+        // Indicators
+        ol.carousel-indicators
+          li.active(data-target='#myCarousel', data-slide-to='0')
+          li(data-target='#myCarousel', data-slide-to='1')
+          li(data-target='#myCarousel', data-slide-to='2')
+          li(data-target='#myCarousel', data-slide-to='3')
+        // Wrapper for slides
+        .carousel-inner(role='listbox')
+          .item.active
+            img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/night_camp.jpg', alt='밀포드사운드', width='100%', height='345')
+            .carousel-caption
+              h2 밀포드사운드
+              p Newzealand, NordNordWest
+          .item
+            img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/trolltunga.jpg', alt='트롤퉁가', width='100%', height='345')
+            .carousel-caption
+              h2 트롤퉁가
+              p Norway, Oda
+          .item
+            img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/northmt.jpg', alt='북한산', width='100%', height='345')
+            .carousel-caption
+              h2 북한산
+              p South Korea, Seoul
+          .item
+            img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/seorak.jpg', alt='설악산', width='100%', height='345')
+            .carousel-caption
+              h2 설악산
+              p South Korea, Kangwon
+        // Left and right controls
+        a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+          span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+          span.sr-only Previous
+        a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+          span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+          span.sr-only Next        
       form(action='/return', method='post')
         fieldset.form-group
         legend
         
-        h4 국가를 선택하세요
+        h5 국가를 선택하세요
         .form-group
           select.form-control(name='temporary_address_div' required)
             option(value='3') 선택 없음
@@ -31,7 +80,7 @@ html(lang='ko')
             option(value='2') 해외 코스            
         legend 
                 
-        h4 지역을 선택하세요
+        h5 지역을 선택하세요
         .form-group
           select.form-control(name='province_code' required)
             option(value='20') 선택 없음
@@ -54,7 +103,7 @@ html(lang='ko')
             option(value='17') 제주특별자치도
         legend
                 
-        h4 주변 환경을 선택하세요
+        h5 주변 환경을 선택하세요
         .form-group
           select.form-control(name='course_type' required)
             option(value='3') 선택 없음
@@ -62,7 +111,7 @@ html(lang='ko')
             option(value='2') 도심속 코스           
         legend 
         
-        h4 기간을 선택하세요
+        h5 기간을 선택하세요
         .form-group
           select.form-control(name='duration_rate' required)
             option(value='4') 선택 없음
@@ -73,7 +122,7 @@ html(lang='ko')
             option(value='4') 3박 이상 코스
         legend 
         
-        h4 난이도를 선택하세요
+        h5 난이도를 선택하세요
         .form-group
           select.form-control(name='difficulty_index' required)
             option(value='4') 선택 없음
@@ -83,7 +132,7 @@ html(lang='ko')
             option(value='4') 많이 힘들어요   
         legend 
        
-        h4 예산을 선택하세요
+        h5 예산을 선택하세요
         .form-group
           select.form-control(name='budget' required)
             option(value='999999999') 선택 없음
@@ -94,5 +143,7 @@ html(lang='ko')
             option(value='200000') 20만원 이하
             option(value='999999999') 나는야 금수저일세..
         legend 
-        button.btn.btn-default.btn-block(type='submit') 검색
+        
+      .form-group
+        button.btn.btn-default.btn-block(type='submit' style='margin-top:10px; background-color:#ffffff; color:#313a4e; font-weight:bold;') 나만의 코스 검색 (3,718개)
       br
