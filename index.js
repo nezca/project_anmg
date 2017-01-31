@@ -55,11 +55,14 @@ app.get('/', function(req,res){
   //------------ 결과 페이지 ---------------
 
 app.post('/return', function(req,res){
+  var temporary_address_div = req.body.temporary_address_div;
+  var province_code = req.body.province_code;
+  var course_type = req.body.course_type;
   var duration_rate = req.body.duration_rate;
   var difficulty_index = req.body.difficulty_index; 
   var budget = req.body.budget;
-  var sql = 'SELECT * FROM exporttable WHERE duration_rate <= ? and difficulty_index <= ? and budget <= ? order by recommend_average desc limit 3';
-  connection.query(sql,[duration_rate, difficulty_index, budget], function(err, project_anmg, fields){
+  var sql = 'SELECT * FROM exporttable WHERE temporary_address_div <= ? and province_code <= ? and course_type <= ? and duration_rate <= ? and difficulty_index <= ? and budget <= ? order by recommend_average desc limit 4';
+  connection.query(sql,[temporary_address_div, province_code, course_type, duration_rate, difficulty_index, budget], function(err, project_anmg, fields){
     if(err){
       console.log(err);
       res.status(500).send('what the hell!');
