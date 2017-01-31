@@ -30,8 +30,17 @@ html(lang='ko')
       body{
       background-color:#313a4e;
       }
+      button.btn.btn-default.btn-block{
+      background-color:black;
+      border:1px solid white;
+      font-size:3rem;
+      margin-top:10px;
+      margin-bottom:10px;      
+      color:#ffffff;
+      font-weight:bold;      
+      }
   body
-    .container
+    .container-fluid
       #myCarousel.carousel.slide(data-ride='carousel')
         // Indicators
         ol.carousel-indicators
@@ -142,8 +151,6 @@ html(lang='ko')
             option(value='100000') 10만원 이하
             option(value='200000') 20만원 이하
             option(value='999999999') 나는야 금수저일세..
-        legend 
-        
-      .form-group
-        button.btn.btn-default.btn-block(type='submit' style='margin-top:10px; background-color:#ffffff; color:#313a4e; font-weight:bold;') 나만의 코스 검색 (3,718개)
-      br
+        legend       
+      
+        button.btn.btn-default.btn-block(type='submit') 코스 검색 (3,718개)
