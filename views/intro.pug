@@ -37,14 +37,16 @@ html(lang='ko')
       padding-left:10px;
       padding-right:10px;
       }
+      
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
       .navbar-header
         button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
           span.icon-bar
           span.icon-bar
-          span.icon-bar
-        a.navbar-brand(href='/') 세상의 모든 트레킹 코스
+          span.icon-bar      
+        a.navbar-brand(href='/') Trekking Advisor 
+          span.glyphicon.glyphicon-tree-conifer
       #myNavbar.collapse.navbar-collapse
         ul.nav.navbar-nav
           li.active
@@ -110,11 +112,12 @@ html(lang='ko')
         a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
           span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
           span.sr-only Next        
-      form(action='/return', method='post')
+      form(name='position_fix', action='/return', method='post')
         fieldset.form-group
         legend
         
-        a(href='#', data-toggle='tooltip', data-placement='right', title='아직 한국만 조회됩니다.') 국가를 선택하세요
+        a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='아직 한국만 조회됩니다.') 국가를 선택하세요 
+          span.glyphicon.glyphicon-question-sign
         .form-group
           select.form-control(name='temporary_address_div' required)
             option(value='3') 선택 없음
@@ -122,7 +125,8 @@ html(lang='ko')
             option(value='2') 해외 코스            
         legend 
         
-        a(href='#', data-toggle='tooltip', data-placement='right', title='서울, 강원, 경기만 조회됩니다.') 지역을 선택하세요
+        a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='서울, 강원, 경기만 조회됩니다.') 지역을 선택하세요 
+          span.glyphicon.glyphicon-question-sign
         .form-group
           select.form-control(name='province_code' required)
             option(value='20') 선택 없음
@@ -145,7 +149,8 @@ html(lang='ko')
             option(value='17') 제주특별자치도
         legend
                 
-        a(href='#', data-toggle='tooltip', data-placement='right', title='자연속 코스만 조회됩니다.') 코스 스타일을 선택하세요
+        a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='자연속 코스만 조회됩니다.') 코스 스타일을 선택하세요 
+          span.glyphicon.glyphicon-question-sign
         .form-group
           select.form-control(name='course_type' required)
             option(value='3') 선택 없음
@@ -153,7 +158,8 @@ html(lang='ko')
             option(value='2') 도심속 코스           
         legend 
         
-        a(href='#', data-toggle='tooltip', data-placement='right', title='3박 이상은 알아서 가세요.') 기간을 선택하세요
+        a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='3박 이상은 알아서 가세요.') 기간을 선택하세요 
+          span.glyphicon.glyphicon-question-sign
         .form-group
           select.form-control(name='duration_rate' required)
             option(value='4') 선택 없음
@@ -164,7 +170,8 @@ html(lang='ko')
             option(value='4') 3박 이상 코스
         legend 
         
-        a(href='#', data-toggle='tooltip', data-placement='right', title='5단계로 구분됩니다.') 난이도를 선택하세요
+        a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='5단계로 구분됩니다.') 난이도를 선택하세요 
+          span.glyphicon.glyphicon-question-sign
         .form-group
           select.form-control(name='difficulty_index' required)
             option(value='4') 선택 없음
@@ -174,7 +181,8 @@ html(lang='ko')
             option(value='4') 많이 힘들어요   
         legend 
        
-        a(href='#', data-toggle='tooltip', data-placement='right', title='돈이 많이 들지 않아요.') 예산을 선택하세요
+        a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='돈이 많이 들지 않아요.') 예산을 선택하세요 
+          span.glyphicon.glyphicon-question-sign
         .form-group
           select.form-control(name='budget' required)
             option(value='999999999') 선택 없음

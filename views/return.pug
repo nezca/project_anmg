@@ -14,25 +14,38 @@ html(lang='ko')
       .table.table-hover.table-inverse{
       margin-bottom:0px;      
       }
-      th{
+      th,td{      
       color:#ffffff;          
-      }
-      td{
-      color:#ffffff;
-      }             
+      }      
       #columns{
       margin-top:50px;
       background-color:#313a4e;
       column-width:100%;
       }
-      h4{
-      color:white;      
+      button.btn.btn-link.btn-sm{      
+      color:#eba92b; 
+      font-weight:bold;
+      font-size:13px;
       }      
       a{
-      color:white;      
+      color:#eba92b;      
       padding-left:10px;
       padding-right:10px;
       }
+      .modal-header, .modal-footer{
+      padding-top:3px;
+      padding-bottom:3px;
+      }
+      .modal-body{
+      padding-top:0px;
+      padding-bottom:0px;
+      padding-left:1px;
+      padding-right:1px;
+      }
+      h4.modal-title{
+      font-weight:bold;
+      }   
+      
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
       .navbar-header
@@ -40,7 +53,8 @@ html(lang='ko')
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a.navbar-brand(href='/') 세상의 모든 트레킹 코스
+        a.navbar-brand(href='/') Trekking Advisor 
+          span.glyphicon.glyphicon-tree-conifer
       #myNavbar.collapse.navbar-collapse
         ul.nav.navbar-nav
           li.active
@@ -74,31 +88,73 @@ html(lang='ko')
         #columns
           figure
             iframe(src=exporttable.map_url frameborder='0' allowfullscreen width='100%' height='300')
-            figcaption              
-              table.table.table-hover.table-inverse
-                thead
+            figcaption
+              .row(style='margin-bottom:5px;')
+                .container                    
+                  button.btn.btn-link.btn-sm(type='button', data-toggle='modal', data-target='#myModal') 구글맵으로 시작 지점 찾아가는 법 
+                    span.glyphicon.glyphicon-transfer
+                  #myModal.modal.fade(role='dialog')
+                    .modal-dialog.modal-sm
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal') ×
+                          h4.modal-title 구글맵으로 시작 지점 찾아가기
+                        .modal-body
+                          .container-fluid(style='padding-left:0px; padding-right:0px;')
+                            #myCarousel.carousel.slide(data-ride='carousel')
+                              // Indicators
+                              ol.carousel-indicators
+                                li.active(data-target='#myCarousel', data-slide-to='0')
+                                li(data-target='#myCarousel', data-slide-to='1')
+                                li(data-target='#myCarousel', data-slide-to='2')
+                                li(data-target='#myCarousel', data-slide-to='3')
+                                li(data-target='#myCarousel', data-slide-to='4')
+                              // Wrapper for slides
+                              .carousel-inner(role='listbox')
+                                .item.active
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%231.png', alt='구글맵으로 시작점 찾아가기 1번', height='60%')                                  
+                                .item
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%232.png', alt='구글맵으로 시작점 찾아가기 2번', height='60%')
+                                .item
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%233.png', alt='구글맵으로 시작점 찾아가기 3번', height='60%')
+                                .item
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%234.png', alt='구글맵으로 시작점 찾아가기 4번', height='60%')
+                                .item
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%235.png', alt='구글맵으로 시작점 찾아가기 5번', height='60%')
+                              // Left and right controls
+                              a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+                                span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                                span.sr-only Previous
+                              a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+                                span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                                span.sr-only Next 
+                        .modal-footer
+                          button.btn.btn-default(type='button', data-dismiss='modal') Close
+              table.table
+                tbody(name='position_fix')                  
                   tr
-                    h4(project_anmg.temporary_address_summary)=exporttable.temporary_address_summary
-                tbody
-                  tr
-                    th(scope='row' style='padding-top:0px;')
-                  tr
-                    th(scope='row') 산 이름
+                    th(scope='row') 산 이름                      
                     td(project_anmg.mt_name)=exporttable.mt_name
                   tr
                     th(scope='row') 코스의 거리
+                      a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='코스의 총 거리(단위 km)')
+                        span.glyphicon.glyphicon-question-sign
                     td(project_anmg.distance_trans)=exporttable.distance_trans  
                   tr
                     th(scope='row') 완주 시간
                     td(project_anmg.duration)=exporttable.duration
                   tr
                     th(scope='row') 코스 난이도
+                      a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='경사도가 심할 수록 힘듬')
+                        span.glyphicon.glyphicon-question-sign
                     td(project_anmg.difficulty_type)=exporttable.difficulty_type
                   tr
                     th(scope='row') 코스 타입
                     td(project_anmg.duration_type)=exporttable.duration_type
                   tr
                     th(scope='row') 예산
+                      a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='예산=간식+식사+숙박+비상금')
+                        span.glyphicon.glyphicon-question-sign
                     td(project_anmg.budget)=exporttable.budget+' 원' 
                   tr
                     th(scope='row') 시작점 고도
@@ -111,6 +167,8 @@ html(lang='ko')
                     td(project_anmg.altitude_top)=exporttable.altitude_top+' m'  
                   tr
                     th(scope='row') 등반 표고차
+                      a(href='#position_fix', data-toggle='tooltip', data-placement='right', title='가장 낮은곳에서 가장 높은곳의 차이')
+                        span.glyphicon.glyphicon-question-sign
                     td(project_anmg.altitude_vertical_gap)=exporttable.altitude_vertical_gap+' m'
                   tr
                     th(scope='row') 코스 스타일
@@ -122,15 +180,19 @@ html(lang='ko')
                     th(scope='row') 추천 평점
                     td(project_anmg.recommend_type)=exporttable.recommend_type
                   tr
-                    th(scope='row') 시작점 주소
+                    th(scope='row') 출발지점 주소 
                     td(project_anmg.origin_address)=exporttable.origin_address 
                   tr
-                    th(scope='row') 종료점 주소
+                    th(scope='row') 도착지점 주소                       
                     td(project_anmg.destination_address)=exporttable.destination_address
                   tr
                     th(scope='row') 추천 운영자
                     td(project_anmg.enroll_admin)=exporttable.enroll_admin  
                   tr
                     th(scope='row') 트레킹 일자
-                    td(project_anmg.enroll_date)=exporttable.enroll_date    
+                    td(project_anmg.enroll_date)=exporttable.enroll_date                     
         br
+    script.
+      $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+      });
