@@ -94,13 +94,13 @@ html(lang='ko')
                   button.btn.btn-link.btn-sm(type='button', data-toggle='modal', data-target='#myModal') 구글맵으로 시작 지점 찾아가는 법 
                     span.glyphicon.glyphicon-transfer
                   #myModal.modal.fade(role='dialog')
-                    .modal-dialog.modal-sm
+                    .modal-dialog.modal-sm(style='margin-left:60px; margin-right:60px;')
                       .modal-content
                         .modal-header
                           button.close(type='button', data-dismiss='modal') ×
-                          h4.modal-title 구글맵으로 시작 지점 찾아가기
+                          h5.modal-title 구글맵으로 시작 지점 찾아가기
                         .modal-body
-                          .container-fluid(style='padding-left:0px; padding-right:0px;')
+                          .container-fluid
                             #myCarousel.carousel.slide(data-ride='carousel')
                               // Indicators
                               ol.carousel-indicators
@@ -112,15 +112,15 @@ html(lang='ko')
                               // Wrapper for slides
                               .carousel-inner(role='listbox')
                                 .item.active
-                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%231.png', alt='구글맵으로 시작점 찾아가기 1번', height='60%')                                  
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%231.png', alt='구글맵으로 시작점 찾아가기 1번', style='height:auto;')                                  
                                 .item
-                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%232.png', alt='구글맵으로 시작점 찾아가기 2번', height='60%')
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%232.png', alt='구글맵으로 시작점 찾아가기 2번', style='height:auto;')
                                 .item
-                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%233.png', alt='구글맵으로 시작점 찾아가기 3번', height='60%')
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%233.png', alt='구글맵으로 시작점 찾아가기 3번', style='height:auto;')
                                 .item
-                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%234.png', alt='구글맵으로 시작점 찾아가기 4번', height='60%')
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%234.png', alt='구글맵으로 시작점 찾아가기 4번', style='height:auto;')
                                 .item
-                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%235.png', alt='구글맵으로 시작점 찾아가기 5번', height='60%')
+                                  img(src='https://s3.ap-northeast-2.amazonaws.com/projectanmg/images/googlemap_%235.png', alt='구글맵으로 시작점 찾아가기 5번', style='height:auto;')
                               // Left and right controls
                               a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
                                 span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
